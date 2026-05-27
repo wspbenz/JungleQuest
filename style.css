@@ -16,16 +16,18 @@ body {
 
 /* animation */
 @keyframes popin {
-    0% {
-        transform: scale(1);
+    40% {
+        transform: scale(0.7);
+
     }
 
     50% {
-        transform: scale(1.15);
+        transform: scale(1.2);
     }
 
     100% {
         transform: scale(1);
+
     }
 }
 
@@ -164,10 +166,8 @@ nav img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 900px;
-    height: auto;
+    width: min(900px, 90vw);
     z-index: 9999;
-
 }
 
 .main #resetalert {
