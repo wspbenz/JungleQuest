@@ -41,21 +41,21 @@ updateUI();
 function showLevelUp() {
 
     levelupimg.classList.remove("fadeout");
-    levelupimg.classList.remove("popin");
+    levelupimg.classList.remove("fadein");
 
     levelupimg.style.display = "block";
 
     // force reflow so animation restarts properly
     void levelupimg.offsetWidth;
 
-    levelupimg.classList.add("popin");
+    levelupimg.classList.add("fadein");
 
     levelupsound.currentTime = 0;
     levelupsound.play();
 
     setTimeout(() => {
 
-        levelupimg.classList.remove("popin");
+        levelupimg.classList.remove("fadein");
         levelupimg.classList.add("fadeout");
 
         setTimeout(() => {
