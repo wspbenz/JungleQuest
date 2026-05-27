@@ -165,6 +165,7 @@ nav img {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 900px;
+    height: auto;
     z-index: 9999;
 
 }
@@ -180,30 +181,32 @@ nav img {
 }
 
 @media (max-width: 483px) {
-    .leveltab {
-        display: flex;
-        justify-content: flex-end;
-        align-items: flex-end;
-        flex-direction: row;
-
-    }
 
     .levelstext {
         position: fixed;
-        top: 90vh;
+        bottom: 60px;
         right: 20px;
+        top: auto;
     }
 
     .levelsbar {
         position: fixed;
-        top: 92vh;
+        bottom: -80px;
         right: 5px;
+        top: auto;
     }
 
     .levelsrank {
         position: fixed;
-        top: 90vh;
+        bottom: 20px;
         right: 150px;
+        top: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .main #levelup {
+        width: 90vw;
     }
 }
 
