@@ -1,11 +1,10 @@
 let gameData = JSON.parse(localStorage.getItem("gameData")) || {
-    count: 0,
-    level: 1,
-    crate: "defaultcrate",
-    background: "defaultbg",
-    lvl100Unlocked: false,
-    lvl200Unlocked: false,
-   
+  count: 0,
+  level: 1,
+  crate: "defaultcrate",
+  background: "defaultbg",
+  lvl100Unlocked: false,
+  lvl200Unlocked: false,
 };
 
 // crate
@@ -22,7 +21,7 @@ const resetalertbox = document.getElementById("reset");
 const unlockalertbox = document.getElementById("unlock");
 const unlocksamurai = document.getElementById("unlocksamurai");
 
-const defaultbg= document.getElementById("defaultbg");
+const defaultbg = document.getElementById("defaultbg");
 const mangrove = document.getElementById("mangrovebg");
 const samuraibg = document.getElementById("samuraibg");
 
@@ -31,115 +30,80 @@ const levelupsound = new Audio("assets/sounds/levelup.mp3");
 const clicksound = new Audio("assets/sounds/click.mp3");
 
 function updateUI() {
-    counter.textContent = "x" + gameData.count;
-    levelText.textContent = "Level " + gameData.level;
-    
+  counter.textContent = "x" + gameData.count;
+  levelText.textContent = "Level " + gameData.level;
 }
 
 updateUI();
 
 function showLevelUp() {
+  levelupimg.classList.remove("fadeout");
+  levelupimg.classList.remove("fadein");
 
-    levelupimg.classList.remove("fadeout");
+  levelupimg.style.display = "block";
+
+  // force reflow so animation restarts properly
+  void levelupimg.offsetWidth;
+
+  levelupimg.classList.add("fadein");
+
+  levelupsound.currentTime = 0;
+  levelupsound.play();
+
+  setTimeout(() => {
     levelupimg.classList.remove("fadein");
-
-    levelupimg.style.display = "block";
-
-    // force reflow so animation restarts properly
-    void levelupimg.offsetWidth;
-
-    levelupimg.classList.add("fadein");
-
-    levelupsound.currentTime = 0;
-    levelupsound.play();
+    levelupimg.classList.add("fadeout");
 
     setTimeout(() => {
-
-        levelupimg.classList.remove("fadein");
-        levelupimg.classList.add("fadeout");
-
-        setTimeout(() => {
-            levelupimg.style.display = "none";
-        }, 300);
-
-    }, 3000);
+      levelupimg.style.display = "none";
+    }, 300);
+  }, 3000);
 }
 
 defaultcrate.onclick = function () {
+  defaultcrate.classList.remove("popin");
+  void defaultcrate.offsetWidth;
+  defaultcrate.classList.add("popin");
+  gameData.count++;
 
-    defaultcrate.classList.remove("popin");
-    void defaultcrate.offsetWidth;
-    defaultcrate.classList.add("popin");
-    gameData.count++;
+  counter.classList.remove("popin");
+  void counter.offsetWidth;
+  counter.classList.add("popin");
 
-    counter.classList.remove("popin");
-    void counter.offsetWidth;
-    counter.classList.add("popin");
-    
+  clicksound.currentTime = 0;
+  clicksound.play();
 
-       clicksound.currentTime = 0;
-    clicksound.play();
+  if (gameData.count % 55 === 0) {
+    gameData.level++;
+    showLevelUp();
+  }
+  unlockcrate();
+  updateUI();
 
-    if (gameData.count % 55 === 0) {
-        gameData.level++;
-        showLevelUp();
-        
-        
-    }
-    unlockcrate();
-    updateUI();
-    
-
-    localStorage.setItem("gameData", JSON.stringify(gameData));
+  localStorage.setItem("gameData", JSON.stringify(gameData));
 };
 
 function unlockcrate() {
-
-    if (gameData.level >= 200) {
-        defaultcrate.src = "assets/lvl100crate.png";
-        defaultbg.src = "assets/samurai.jpg";
-        counter.style.color = "white";
-        levels.style.color = "white";
-
-        if (!gameData.lvl200Unlocked) {
-
-            unlocksamurai.style.display = "block";
-
-            setTimeout(() => {
-                unlocksamurai.style.display = "none";
-            }, 4000);
-
-            gameData.lvl200Unlocked = true;
-        }
-    }
-    else if (gameData.level >= 100) {
-
-        defaultcrate.src = "assets/lvl100crate.png";
-        defaultbg.src = "assets/mangrove.jpeg";
-        counter.style.color = "black";
-        levels.style.color = "black";
-
-        if (!gameData.lvl100Unlocked) {
-
-            unlockalertbox.style.display = "block";
-
-            setTimeout(() => {
-                unlockalertbox.style.display = "none";
-            }, 4000);
-
-            gameData.lvl100Unlocked = true;
-        }
-
-    } else if (gameData.level >= 50) {
-        defaultcrate.src = "assets/lvl50crate.png";
-
-    } else if (gameData.level >= 20) {
-        defaultcrate.src = "assets/lvl20crate.png";
-
-    } else {
-        defaultcrate.src = "assets/crate.png";
-        defaultbg.src = "assets/bg.jpg";
-        counter.style.color = "white";
-        levels.style.color = "white";
-    }
+  if (gameData.level >= 200) {
+    defaultcrate.src = "assets/lvl100crate.png";
+    defaultbg.src = "assets/samurai.jpg";
+    counter.style.color = "white";
+    levels.style.color = "white";
+  } else if (gameData.level >= 100) {
+    defaultcrate.src = "assets/lvl100crate.png";
+    defaultbg.src = "assets/mangrove.jpg";
+    counter.style.color = "black";
+    levels.style.color = "black";
+  } else if (gameData.level >= 50) {
+    defaultcrate.src = "assets/lvl50crate.png";
+    defaultbg.src = "assets/village.jpg";
+  } else if (gameData.level >= 20) {
+    defaultcrate.src = "assets/lvl20crate.png";
+    defaultbg.src = "assets/citybg.jpg";
+  } else {
+    defaultcrate.src = "assets/crate.png";
+    defaultbg.src = "assets/bg.jpg";
+    counter.style.color = "white";
+    levels.style.color = "white";
+  }
 }

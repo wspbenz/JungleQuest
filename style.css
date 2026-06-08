@@ -9,11 +9,20 @@
     outline: none;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
     width: 100%;
     min-height: 100vh;
     font-family: Arial, sans-serif;
@@ -61,7 +70,7 @@ body {
 }
 
 .fadein {
-    animation: fadein 0.3s ease;
+    animation: fadein 1s ease;
 }
 
 .popin {
