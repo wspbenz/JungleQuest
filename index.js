@@ -27,7 +27,7 @@ const samuraibg = document.getElementById("samuraibg");
 
 // sounds
 const levelupsound = new Audio("assets/sounds/levelup.mp3");
-const clicksound = new Audio("assets/sounds/click.mp3");
+const clicksound = new Audio("assets/sounds/osu-hit-sound.mp3");
 
 function updateUI() {
   counter.textContent = "x" + gameData.count;

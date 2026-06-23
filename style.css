@@ -1,276 +1,270 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    width: 100%;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* animation */
 @keyframes popin {
-    40% {
-        transform: scale(0.7);
+  40% {
+    transform: scale(0.7);
+  }
 
-    }
+  50% {
+    transform: scale(1.2);
+  }
 
-    50% {
-        transform: scale(1.2);
-    }
-
-    100% {
-        transform: scale(1);
-
-    }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes fadeout {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fadein {
-    fron {
-        opacity: 0;
-    }
+  fron {
+    opacity: 0;
+  }
 
-    to {
-        opacity: 1;
-    }
+  to {
+    opacity: 1;
+  }
 }
 
 .fadein {
-    animation: fadein 1s ease;
+  animation: fadein 1s ease;
 }
 
 .popin {
-    animation: popin 0.3s ease;
+  animation: popin 0.3s ease;
 }
 
 .fadeout {
-    animation: fadeout 0.3s ease;
+  animation: fadeout 0.3s ease;
 }
 
 /* root */
 
 h1 {
-    color: white;
+  color: white;
 }
 
 .bgimage {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-
 #unlock {
-    background: rgba(68, 255, 0, 0.453);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid white;
-    position: fixed;
-    top: 20px;
-    display: none;
-    padding: 10px 20px;
-    font-size: 30px;
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
+  background: rgba(68, 255, 0, 0.453);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid white;
+  position: fixed;
+  top: 20px;
+  display: none;
+  padding: 10px 20px;
+  font-size: 30px;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
 }
 
 #unlocksamurai {
-    background: rgba(68, 255, 0, 0.453);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid white;
-    position: fixed;
-    top: 20px;
-    display: none;
-    padding: 10px 20px;
-    font-size: 30px;
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
+  background: rgba(68, 255, 0, 0.453);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid white;
+  position: fixed;
+  top: 20px;
+  display: none;
+  padding: 10px 20px;
+  font-size: 30px;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
 }
 
 /* nav */
 nav {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: row;
-
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
 nav img {
-    width: 300px;
-    position: fixed;
-    top: -90px;
+  width: 300px;
+  position: fixed;
+  top: -90px;
 }
 
 /* level-tab */
 
 .leveltab {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: row;
-
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: row;
 }
 
 .levelstext {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 .levelsbar {
-    position: fixed;
-    top: 35px;
-    right: 5px;
+  position: fixed;
+  top: 35px;
+  right: 5px;
 }
 
 .levelsrank {
-    position: fixed;
-    top: 20px;
-    right: 150px;
+  position: fixed;
+  top: 20px;
+  right: 150px;
 }
 
 /* main */
 .main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .main #defaultcrate {
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
 }
 
 .main #lvl20crate img {
-    cursor: pointer;
-    display: none;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    outline: none;
+  cursor: pointer;
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
 }
 
 .main #lvl50crate {
-    cursor: pointer;
-    display: none;
-    -webkit-tap-highlight-color: transparent;
-    user-select: none;
-    outline: none;
+  cursor: pointer;
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
 }
 
 .main #levelup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(900px, 90vw);
-    z-index: 9999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 90vw);
+  z-index: 9999;
 }
 
 .main #resetalert {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 636px) {
-    .main #levelup {
-        width: 600px;
-    }
+  .main #levelup {
+    width: 600px;
+  }
 }
 
 @media (max-width: 483px) {
+  .levelstext {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    top: auto;
+  }
 
-    .levelstext {
-        position: fixed;
-        bottom: 60px;
-        right: 20px;
-        top: auto;
-    }
+  .levelsbar {
+    position: fixed;
+    bottom: -80px;
+    right: 5px;
+    top: auto;
+  }
 
-    .levelsbar {
-        position: fixed;
-        bottom: -80px;
-        right: 5px;
-        top: auto;
-    }
-
-    .levelsrank {
-        position: fixed;
-        bottom: 20px;
-        right: 150px;
-        top: auto;
-    }
+  .levelsrank {
+    position: fixed;
+    bottom: 20px;
+    right: 150px;
+    top: auto;
+  }
 }
 
 @media (max-width: 400px) {
-    .main #levelup {
-        width: 90vw;
-    }
+  .main #levelup {
+    width: 90vw;
+  }
 }
 
 @media (max-width: 386px) {
-    .main #levelup {
-        width: 500px;
-    }
+  .main #levelup {
+    width: 500px;
+  }
 }
 
 @media (max-width: 348px) {
-    .main #defaultcrate {
-        width: 250px;
-    }
+  .main #defaultcrate {
+    width: 250px;
+  }
 
-    .main #lvl20crate img {
-        width: 250px;
-    }
+  .main #lvl20crate img {
+    width: 250px;
+  }
 
-    .main #lvl50crate {
-        width: 250px;
-    }
+  .main #lvl50crate {
+    width: 250px;
+  }
 
-    .main #levelup {
-        width: 400px;
-    }
+  .main #levelup {
+    width: 400px;
+  }
 }
