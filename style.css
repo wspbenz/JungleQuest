@@ -35,7 +35,7 @@ body {
 /* animation */
 @keyframes popin {
   40% {
-    transform: scale(0.7);
+    transform: scale(0.5);
   }
 
   50% {
@@ -56,6 +56,14 @@ body {
     opacity: 0;
   }
 }
+@keyframes click {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 
 @keyframes fadein {
   fron {
@@ -70,11 +78,12 @@ body {
 .fadein {
   animation: fadein 1s ease;
 }
-
+.click {
+  animation: click 0.2s ease;
+}
 .popin {
   animation: popin 0.3s ease;
 }
-
 .fadeout {
   animation: fadeout 0.3s ease;
 }

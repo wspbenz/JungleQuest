@@ -61,9 +61,9 @@ function showLevelUp() {
 }
 
 defaultcrate.onclick = function () {
-  defaultcrate.classList.remove("popin");
+  defaultcrate.classList.remove("click");
   void defaultcrate.offsetWidth;
-  defaultcrate.classList.add("popin");
+  defaultcrate.classList.add("click");
   gameData.count++;
 
   counter.classList.remove("popin");
